@@ -1,0 +1,352 @@
+/* =========================================
+   Base Styles (Desktop)
+   ========================================= */
+
+.heroSection {
+  position: relative;
+  height: 100vh;
+  min-height: 750px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #050505; /* Rich Black */
+  animation: fadeIn 1.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Video Container */
+.videoContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.backgroundVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  filter: brightness(1.05) contrast(1.1) saturate(1.15);
+}
+
+.videoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(5, 5, 5, 0.4) 0%,
+    rgba(5, 5, 5, 0.95) 100%
+  );
+  z-index: 2;
+}
+
+/* Hero Content */
+.heroContent {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+.contentWrapper {
+  max-width: 1300px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.7rem 1.4rem;
+  border-radius: 50px;
+  margin-bottom: 2.5rem;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.badgeText {
+  color: #fff200;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+/* Hero Title */
+.heroTitle {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 1.8rem;
+  letter-spacing: -1px;
+}
+
+.titleHighlight {
+  background: linear-gradient(135deg, #0062ff, #00c6ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-left: 0.2rem;
+}
+
+/* Hero Description */
+.heroDescription {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.7;
+  color: #d0d0d0;
+  max-width: 750px;
+  margin: 0 auto 3.5rem;
+  font-weight: 400;
+}
+
+/* CTA Buttons */
+.ctaButtons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.primaryButton, .secondaryButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem 2.2rem;
+  border-radius: 30px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #0062ff, #0038b8);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 98, 255, 0.25);
+}
+
+.secondaryButton {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.primaryButton:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(0, 98, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.secondaryButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #ffffff;
+  transform: translateY(-4px);
+}
+
+/* Stats Container */
+.statsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  background: rgba(10, 10, 10, 0.6);
+  border-radius: 20px;
+  padding: 2rem 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.statNumber {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.statLabel {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.statDivider {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+/* =========================================
+   Media Query: 1024px (Laptops)
+   ========================================= */
+@media (max-width: 1024px) {
+  .heroSection {
+    min-height: 700px;
+  }
+
+  .contentWrapper {
+    max-width: 900px;
+  }
+
+  .heroTitle {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .statsContainer {
+    gap: 3rem;
+    padding: 1.5rem 2.5rem;
+  }
+
+  .statNumber {
+    font-size: 2.2rem;
+  }
+}
+
+/* =========================================
+   Media Query: 768px (Tablets)
+   ========================================= */
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: 800px;
+    height: auto;
+    padding: 6rem 0;
+  }
+
+  .badge {
+    padding: 0.6rem 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .heroTitle {
+    font-size: 3rem;
+  }
+
+  .heroDescription {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .primaryButton, .secondaryButton {
+    width: 100%;
+    max-width: 320px;
+    padding: 1rem;
+  }
+
+  /* Stack stats vertically on tablet */
+  .statsContainer {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    gap: 1.5rem;
+    padding: 2rem;
+    margin-top: 1rem;
+  }
+
+  .statDivider {
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  }
+}
+
+/* =========================================
+   Media Query: 425.6px (Mobile L)
+   ========================================= */
+@media (max-width: 425.6px) {
+  .heroSection {
+    padding: 5rem 0;
+  }
+
+  .heroContent {
+    padding: 0 1.25rem;
+  }
+
+  .heroTitle {
+    font-size: 2.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .heroDescription {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .statNumber {
+    font-size: 2rem;
+  }
+}
+
+/* =========================================
+   Media Query: 375.2px (Mobile M)
+   ========================================= */
+@media (max-width: 375.2px) {
+  .heroContent {
+    padding: 0 1rem;
+  }
+
+  .badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .heroTitle {
+    font-size: 2.1rem;
+  }
+
+  .primaryButton, .secondaryButton {
+    font-size: 1rem;
+    padding: 0.9rem;
+  }
+
+  .statsContainer {
+    padding: 1.5rem;
+  }
+
+  .statLabel {
+    font-size: 0.8rem;
+  }
+}

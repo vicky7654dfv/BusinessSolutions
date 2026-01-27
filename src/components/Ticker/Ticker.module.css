@@ -1,0 +1,214 @@
+/* =========================================
+   Base Styles
+   ========================================= */
+
+.tickerSection {
+  background-color: #050505; /* Rich Black */
+  padding: 2rem 0; /* More vertical space for the X shape */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.crossContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Common Tape Styles */
+.tape {
+  position: absolute;
+  width: 120vw; /* Wide enough to cover corners when tilted */
+  padding: 1.2rem 0;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+/* =========================================
+   Tape 1: Primary (Blue, Right-to-Left)
+   ========================================= */
+.tapePrimary {
+  background: #0062ff; /* Professional Blue */
+  transform: rotate(-4deg);
+  z-index: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Texture overlay for primary tape */
+.tapePrimary::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.1) 10px,
+    rgba(0, 0, 0, 0.1) 20px
+  );
+  pointer-events: none;
+}
+
+/* =========================================
+   Tape 2: Secondary (Glass/Dark, Left-to-Right)
+   ========================================= */
+.tapeSecondary {
+  background: rgba(255, 255, 255, 0.05); /* Glassy/Ghost effect */
+  transform: rotate(4deg);
+  z-index: 2; /* Sits on top */
+  border-top: 1px solid #00ccff; /* Accent border */
+  border-bottom: 1px solid #00ccff;
+  backdrop-filter: blur(8px); /* Blur the blue tape behind it */
+}
+
+/* =========================================
+   Animation Logic
+   ========================================= */
+
+.trackReverse, .trackForward {
+  display: flex;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+/* Right to Left Animation (Standard) */
+.trackReverse .content {
+  animation: scrollLeft 45s linear infinite;
+}
+
+/* Left to Right Animation */
+.trackForward .content {
+  animation: scrollRight 50s linear infinite;
+}
+
+/* The Keyframes */
+/* Moves content from 0 to -50% (assuming doubled content) */
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Moves content from -50% to 0 */
+@keyframes scrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* =========================================
+   Typography
+   ========================================= */
+
+.word {
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin: 0 2rem; /* Spacing between words */
+  white-space: nowrap;
+  text-transform: uppercase;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.wordLight {
+  color: #e0e0e0;
+  font-weight: 700;
+}
+
+/* =========================================
+   Media Query: 1024px (Laptops)
+   ========================================= */
+@media (max-width: 1024px) {
+  .tickerSection {
+    padding: 2rem 0;
+    min-height: 350px;
+  }
+
+  .tape {
+    padding: 1rem 0;
+  }
+
+  .word {
+    font-size: 1.2rem;
+    margin: 0 1.5rem;
+  }
+}
+
+/* =========================================
+   Media Query: 768px (Tablets)
+   ========================================= */
+@media (max-width: 768px) {
+  .tickerSection {
+    padding: 2rem 0;
+    min-height: 300px;
+  }
+
+  /* Increase rotation slightly on mobile to make the X more visible in smaller vertical space */
+  .tapePrimary {
+    transform: rotate(-6deg);
+  }
+  
+  .tapeSecondary {
+    transform: rotate(6deg);
+  }
+
+  .word {
+    font-size: 1rem;
+    margin: 0 1rem;
+  }
+}
+
+/* =========================================
+   Media Query: 425.6px (Large Mobile)
+   ========================================= */
+@media (max-width: 425.6px) {
+  .tickerSection {
+    padding: 0.2rem 0;
+  }
+
+  .tape {
+    padding: 0.8rem 0;
+    width: 140vw; /* Ensure edges are covered */
+  }
+
+  .word {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+}
+
+/* =========================================
+   Media Query: 375.2px (Small Mobile)
+   ========================================= */
+@media (max-width: 375.2px) {
+  .tickerSection {
+    padding: 0.2rem 0;
+  }
+
+  .tapePrimary {
+    transform: rotate(-8deg);
+  }
+  
+  .tapeSecondary {
+    transform: rotate(8deg);
+  }
+
+  .word {
+    font-size: 0.8rem;
+    margin: 0 0.8rem;
+  }
+}

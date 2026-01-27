@@ -1,0 +1,330 @@
+/* =========================================
+   Base Styles (Desktop)
+   ========================================= */
+
+.leadersSection {
+  background-color: #050505; /* Rich Black */
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Header */
+.headerWrapper {
+  text-align: center;
+  margin-bottom: 5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.badge {
+  color: #00ccff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.sectionTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.titleHighlight {
+  background: linear-gradient(135deg, #0062ff, #00c6ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sectionDesc {
+  color: #a0a0a0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Grid Layout (1x2) */
+.leadersGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  align-items: stretch;
+}
+
+/* Card Styling */
+.leaderCard {
+  position: relative;
+  height: 700px; /* Big vertical size */
+  border-radius: 24px;
+  overflow: hidden;
+  background: #101010;
+  cursor: pointer;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.leaderCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 98, 255, 0.15);
+}
+
+/* Image Handling */
+.imageWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.leaderImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(100%) contrast(1.1);
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  transform: scale(1.01);
+}
+
+/* Hover Effect: Colorize & Zoom */
+.leaderCard:hover .leaderImage {
+  filter: grayscale(0%) contrast(1);
+  transform: scale(1.08);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  background: linear-gradient(
+    to top,
+    rgba(5, 5, 5, 0.95) 0%,
+    rgba(5, 5, 5, 0.6) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+/* Info Panel */
+.infoPanel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 3rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.roleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.leaderCard:hover .roleWrapper {
+  opacity: 1;
+}
+
+.roleLine {
+  width: 30px;
+  height: 2px;
+  background: #0062ff;
+}
+
+.roleText {
+  color: #00ccff;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.name {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  line-height: 1;
+}
+
+.quote {
+  color: #cccccc;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-style: italic;
+  margin-bottom: 2rem;
+  max-width: 90%;
+  opacity: 0.7;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.leaderCard:hover .quote {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Social Row */
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+}
+
+.socialTag {
+  color: #888;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.leaderCard:hover .socialTag {
+  color: #ffffff;
+}
+
+.arrowIcon {
+  margin-left: auto;
+  color: #0062ff;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.leaderCard:hover .arrowIcon {
+  transform: translate(3px, -3px);
+  color: #00ccff;
+}
+
+/* =========================================
+   Media Query: 1024px (Laptops)
+   ========================================= */
+@media (max-width: 1024px) {
+  .leadersSection {
+    padding: 2rem 0;
+  }
+
+  .leaderCard {
+    height: 600px;
+  }
+
+  .name {
+    font-size: 2.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 3rem;
+  }
+}
+
+/* =========================================
+   Media Query: 768px (Tablets)
+   ========================================= */
+@media (max-width: 768px) {
+  .leadersGrid {
+    grid-template-columns: 1fr; /* Stack vertically */
+    gap: 2.5rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .leaderCard {
+    height: 550px;
+  }
+
+  /* Always show color on mobile */
+  .leaderImage {
+    filter: grayscale(0%) contrast(1.05);
+  }
+
+  .quote {
+    opacity: 1;
+    transform: translateY(0);
+    font-size: 1rem;
+  }
+
+  .infoPanel {
+    padding: 2rem;
+  }
+
+  .headerWrapper {
+    margin-bottom: 3.5rem;
+  }
+}
+
+/* =========================================
+   Media Query: 425.6px (Large Mobile)
+   ========================================= */
+@media (max-width: 425.6px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+
+  .leaderCard {
+    height: 500px;
+  }
+
+  .name {
+    font-size: 2.2rem;
+  }
+
+  .quote {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* =========================================
+   Media Query: 375.2px (Small Mobile)
+   ========================================= */
+@media (max-width: 375.2px) {
+  .leadersSection {
+    padding: 2rem 0;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .leaderCard {
+    height: 450px;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .name {
+    font-size: 1.8rem;
+  }
+
+  .infoPanel {
+    padding: 1.5rem;
+  }
+
+  .roleText {
+    font-size: 0.8rem;
+  }
+}

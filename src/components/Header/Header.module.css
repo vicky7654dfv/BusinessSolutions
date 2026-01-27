@@ -1,0 +1,433 @@
+/* Base Styles */
+.header {
+  background-color: #050505; /* Rich Black */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+  animation: fadeIn 0.8s ease-out;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Logo Styles */
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1002;
+}
+
+.logo:hover {
+  transform: translateX(2px);
+}
+
+.logoWrapper {
+  position: relative;
+  width: 70px; /* Increased Size */
+  height: 70px; /* Increased Size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 15px rgba(0, 98, 255, 0.2));
+}
+
+.logoGlow {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(0, 98, 255, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.companyName {
+  display: flex;
+  flex-direction: row; /* Straight line */
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.logoTextAccent {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #0062ff, #00c6ff); /* Professional Blue Gradient */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.5px;
+}
+
+/* Navigation Styles */
+.navList {
+  display: flex;
+  list-style: none;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.4rem;
+  background: rgba(20, 20, 20, 0.6);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 0;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.navLink:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.navIcon {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.navText {
+  color: #d0d0d0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover .navText {
+  color: #ffffff;
+}
+
+.navHoverLine {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #0062ff;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover .navHoverLine {
+  width: 40%;
+}
+
+/* Sign Up / Get Started Button */
+.signupButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #0062ff, #0038b8); /* Corporate Blue */
+  color: white;
+  border: none;
+  padding: 0.7rem 1.6rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 98, 255, 0.25);
+  margin-left: 0.5rem;
+}
+
+.signupButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 98, 255, 0.35);
+  background: linear-gradient(135deg, #1a75ff, #0047e0);
+}
+
+/* Login Button */
+.loginButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.7rem 1.6rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.loginButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+}
+
+/* Mobile Menu Button */
+.menuButton {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1002;
+}
+
+.menuBar {
+  width: 100%;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.menuButton:hover .menuBar {
+  background: #0062ff;
+}
+
+.menuButton.open .menuBar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+.menuButton.open .menuBar:nth-child(2) {
+  opacity: 0;
+}
+.menuButton.open .menuBar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  display: none;
+}
+
+/* =========================================
+   Media Queries
+   ========================================= */
+
+/* 1024px */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .navList {
+    gap: 0.3rem;
+    padding: 0.3rem;
+  }
+  
+  .navLink {
+    padding: 0.6rem 1rem;
+  }
+  
+  .signupButton, 
+  .loginButton {
+    padding: 0.6rem 1.2rem;
+  }
+  
+  .logoWrapper {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .logoGlow {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .logoText, 
+  .logoTextAccent {
+    font-size: 1.3rem;
+  }
+}
+
+/* 768px (Mobile Breakpoint) */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  /* Active State - Centered Floating Box */
+  .nav.navActive {
+    display: flex;
+    position: fixed;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    max-width: 400px;
+    background-color: #121212;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    flex-direction: column;
+    animation: slideDown 0.3s ease forwards;
+    border-radius: 20px;
+    z-index: 1001;
+  }
+
+  .navActive .navList {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 0;
+    gap: 0.8rem;
+  }
+
+  .navActive .navLink {
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .navActive .signupButton,
+  .navActive .loginButton {
+    width: 100%;
+    justify-content: center;
+    margin: 0.5rem 0 0 0;
+  }
+
+  .overlay {
+    display: block;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+
+  .logoWrapper {
+    width: 55px;
+    height: 55px;
+  }
+
+  .logoGlow {
+    width: 65px;
+    height: 65px;
+  }
+
+  .logoText, 
+  .logoTextAccent {
+    font-size: 1.2rem;
+  }
+}
+
+/* 425.6px */
+@media (max-width: 425.6px) {
+  .container {
+    padding: 0 1.2rem;
+  }
+
+  .logoWrapper {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logoGlow {
+    width: 60px;
+    height: 60px;
+  }
+
+  .logoText, 
+  .logoTextAccent {
+    font-size: 1.1rem;
+  }
+  
+  .nav.navActive {
+    width: 90%;
+    padding: 1.5rem;
+  }
+}
+
+/* 375.2px */
+@media (max-width: 375.2px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .logo {
+    gap: 0.6rem;
+  }
+
+  .logoWrapper {
+    width: 45px;
+    height: 45px;
+  }
+
+  .logoGlow {
+    width: 55px;
+    height: 55px;
+  }
+
+  .logoText, 
+  .logoTextAccent {
+    font-size: 1rem;
+  }
+
+  .menuButton {
+    width: 35px;
+  }
+
+  .nav.navActive {
+    width: 95%;
+    padding: 1.25rem;
+  }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
