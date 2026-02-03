@@ -66,8 +66,8 @@
 }
 
 .logoWrapper {
-  width: 70px;  /* Increased size */
-  height: 70px; /* Increased size */
+  width: 120px;  /* Increased size */
+  height: 50px; /* Increased size */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,7 +81,7 @@
 
 .brandText {
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
   display: flex;
   flex-direction: row; /* Same line */
@@ -296,12 +296,12 @@
   }
   
   .logoWrapper {
-    width: 60px;
-    height: 60px;
+    width: 120px;
+    height: 50px;
   }
   
   .brandText {
-    font-size: 1.3rem;
+    font-size: 0.9rem;
   }
   
 .emailInput {
@@ -327,6 +327,10 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+  }
+  .logoWrapper {
+    width: 120px;
+    height: 50px;
   }
 
   .description {
@@ -383,10 +387,9 @@
   }
   
   .logoWrapper {
-    width: 50px;
+    width: 90px;
     height: 50px;
   }
-  
   .brandText {
     font-size: 1.2rem;
   }

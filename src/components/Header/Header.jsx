@@ -23,6 +23,7 @@ const Header = () => {
     window.scrollTo(0, 0);
   };
 
+  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -81,7 +82,6 @@ const Header = () => {
                   handleNavigation('/Error');
                 }}
               >
-                <span className={styles.navIcon}>🏢</span>
                 <span className={styles.navText}>About</span>
                 <span className={styles.navHoverLine}></span>
               </Link>
@@ -95,7 +95,6 @@ const Header = () => {
                   handleNavigation('/Error');
                 }}
               >
-                <span className={styles.navIcon}>⚡</span>
                 <span className={styles.navText}>Services</span>
                 <span className={styles.navHoverLine}></span>
               </Link>
@@ -109,7 +108,6 @@ const Header = () => {
                   handleNavigation('/Error');
                 }}
               >
-                <span className={styles.navIcon}>📞</span>
                 <span className={styles.navText}>Contact</span>
                 <span className={styles.navHoverLine}></span>
               </Link>
@@ -119,7 +117,6 @@ const Header = () => {
                 className={styles.signupButton}
                 onClick={() => handleNavigation('/Error')}
               >
-                <span className={styles.buttonIcon}>🚀</span>
                 <span className={styles.buttonText}>Get Started</span>
               </button>
             </li>
@@ -128,7 +125,6 @@ const Header = () => {
                 className={styles.loginButton}
                 onClick={() => handleNavigation('/Error')}
               >
-                <span className={styles.buttonIcon}>🔐</span>
                 <span className={styles.buttonText}>Login</span>
               </button>
             </li>

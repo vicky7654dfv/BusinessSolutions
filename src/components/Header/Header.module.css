@@ -1,13 +1,15 @@
 /* Base Styles */
 .header {
-  background-color: #050505; /* Rich Black */
+  background-color: #050505;
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 1rem 0;
+  height: 80px; /* Fixed Height */
+  padding: 0;
   animation: fadeIn 0.8s ease-out;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
+  overflow: visible; /* Allows logo pop-out */
 }
 
 @keyframes fadeIn {
@@ -22,103 +24,125 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  height: 100%; 
 }
 
 /* Logo Styles */
 .logoContainer {
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
 .logo {
   display: flex;
   align-items: center;
   text-decoration: none;
-  gap: 1rem;
-  transition: transform 0.3s ease;
+  gap: 3.5rem; /* Large gap for Desktop */
   position: relative;
   z-index: 1002;
+  height: 100%;
 }
 
 .logo:hover {
   transform: translateX(2px);
+  transition: transform 0.3s ease;
 }
 
+/* Structural Anchor */
 .logoWrapper {
   position: relative;
-  width: 70px; /* Increased Size */
-  height: 70px; /* Increased Size */
+  width: 60px; 
+  height: 60px; 
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Visual Element (Pop-out Image) */
 .logoImage {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  width: 140px; 
+  height: 140px; 
   object-fit: contain;
-  position: relative;
   z-index: 2;
   filter: drop-shadow(0 0 15px rgba(0, 98, 255, 0.2));
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover .logoImage {
+  transform: translate(-50%, -50%) scale(1.05);
 }
 
 .logoGlow {
   position: absolute;
-  width: 80px;
-  height: 80px;
-  background: radial-gradient(circle, rgba(0, 98, 255, 0.15) 0%, transparent 70%);
+  width: 110px;
+  height: 110px;
+  background: radial-gradient(circle, rgba(0, 98, 255, 0.2) 0%, transparent 70%);
   border-radius: 50%;
   z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .companyName {
   display: flex;
-  flex-direction: row; /* Straight line */
+  flex-direction: row; 
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 .logoText {
   font-size: 1.5rem;
   font-weight: 700;
   color: #ffffff;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  line-height: 1;
 }
 
 .logoTextAccent {
   font-size: 1.5rem;
   font-weight: 700;
-  background: linear-gradient(90deg, #0062ff, #00c6ff); /* Professional Blue Gradient */
+  background: linear-gradient(90deg, #0062ff, #00c6ff);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  line-height: 1;
 }
 
 /* Navigation Styles */
 .navList {
   display: flex;
   list-style: none;
-  gap: 0.5rem;
+  gap: 1rem;
   align-items: center;
-  padding: 0.4rem;
+  padding: 0 1rem; 
   background: rgba(20, 20, 20, 0.6);
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   margin: 0;
+  height: 50px; 
 }
 
 .navItem {
   position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .navLink {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  justify-content: center;
   text-decoration: none;
-  padding: 0.7rem 1.4rem;
+  padding: 0 1.2rem;
+  height: 100%;
   border-radius: 30px;
   transition: all 0.3s ease;
   position: relative;
@@ -126,83 +150,86 @@
 }
 
 .navLink:hover {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.navIcon {
-  font-size: 1rem;
-  opacity: 0.8;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .navText {
   color: #d0d0d0;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 500;
-  transition: color 0.3s ease;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
 }
 
 .navLink:hover .navText {
   color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 98, 255, 0.8);
 }
 
 .navHoverLine {
   position: absolute;
-  bottom: 8px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background: #0062ff;
+  background: #3385ff;
   transition: width 0.3s ease;
+  box-shadow: 0 0 8px #0062ff;
 }
 
 .navLink:hover .navHoverLine {
-  width: 40%;
+  width: 60%;
 }
 
-/* Sign Up / Get Started Button */
+/* Buttons */
 .signupButton {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, #0062ff, #0038b8); /* Corporate Blue */
+  justify-content: center;
+  background: linear-gradient(135deg, #0062ff, #0047e0);
   color: white;
   border: none;
-  padding: 0.7rem 1.6rem;
+  padding: 0 2rem;
+  height: 40px;
   border-radius: 30px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 98, 255, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 98, 255, 0.3);
   margin-left: 0.5rem;
+  letter-spacing: 0.5px;
 }
 
 .signupButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 98, 255, 0.35);
-  background: linear-gradient(135deg, #1a75ff, #0047e0);
+  box-shadow: 0 6px 20px rgba(0, 98, 255, 0.6);
+  background: linear-gradient(135deg, #3385ff, #0052ff);
 }
 
-/* Login Button */
 .loginButton {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
   background: transparent;
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 0.7rem 1.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0 2rem;
+  height: 40px;
   border-radius: 30px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  letter-spacing: 0.5px;
 }
 
 .loginButton:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: #ffffff;
+  background: rgba(0, 98, 255, 0.15); 
+  border-color: #3385ff;
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 98, 255, 0.3);
 }
 
 /* Mobile Menu Button */
@@ -229,6 +256,7 @@
 
 .menuButton:hover .menuBar {
   background: #0062ff;
+  box-shadow: 0 0 8px rgba(0, 98, 255, 0.8);
 }
 
 .menuButton.open .menuBar:nth-child(1) {
@@ -257,88 +285,125 @@
    Media Queries
    ========================================= */
 
-/* 1024px */
+/* 1024px - Tablet Landscape */
 @media (max-width: 1024px) {
+  .header {
+    height: 75px;
+  }
+  
   .container {
     padding: 0 1.5rem;
   }
   
-  .navList {
-    gap: 0.3rem;
-    padding: 0.3rem;
+  .logo {
+    gap: 2.5rem; 
+    transform: translateX(1.5rem);
   }
-  
-  .navLink {
-    padding: 0.6rem 1rem;
-  }
-  
-  .signupButton, 
-  .loginButton {
-    padding: 0.6rem 1.2rem;
-  }
-  
+
   .logoWrapper {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
   }
   
-  .logoGlow {
-    width: 70px;
-    height: 70px;
+  .logoImage {
+    width: 120px;
+    height: 120px;
   }
   
   .logoText, 
   .logoTextAccent {
     font-size: 1.3rem;
   }
+
+  .navList {
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .navLink, .signupButton, .loginButton {
+    padding: 0 1rem;
+  }
 }
 
-/* 768px (Mobile Breakpoint) */
+/* 768px - Mobile/Tablet Portrait */
 @media (max-width: 768px) {
+  .header {
+    height: 70px;
+  }
+
+  .logo {
+    gap: 2rem; 
+  }
+
   .nav {
     display: none;
   }
 
-  /* Active State - Centered Floating Box */
+  /* --- CORRECTED MOBILE NAV --- */
   .nav.navActive {
     display: flex;
     position: fixed;
     top: 90px;
     left: 50%;
     transform: translateX(-50%);
-    width: 85%;
-    max-width: 400px;
+    
+    /* 1. Wider Container */
+    width: 92%; 
+    max-width: 450px;
+    
     background-color: #121212;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 2rem;
+    
+    /* 2. Optimized Padding */
+    padding: 2rem 1.5rem; 
+    
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
     flex-direction: column;
     animation: slideDown 0.3s ease forwards;
     border-radius: 20px;
     z-index: 1001;
+    height: auto;
   }
 
   .navActive .navList {
+    display: flex;
     flex-direction: column;
-    align-items: stretch;
-    width: 100%;
+    align-items: stretch; /* 3. Stretch items to full width */
+    width: 100%; /* 4. Full width list */
     background: transparent;
     border: none;
     padding: 0;
     gap: 0.8rem;
+    height: auto;
+    margin: 0;
+  }
+
+  /* Ensure Items take full width */
+  .navActive .navItem {
+    width: 100%; 
   }
 
   .navActive .navLink {
+    width: 100%; /* 5. Full width links */
     justify-content: center;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.05);
+    height: 50px;
+    box-sizing: border-box; /* Ensure padding includes in width */
+  }
+  
+  .navActive .navText {
+    font-size: 1.1rem;
   }
 
+  /* Buttons */
   .navActive .signupButton,
   .navActive .loginButton {
-    width: 100%;
+    width: 100%; /* 6. Full width buttons */
     justify-content: center;
     margin: 0.5rem 0 0 0;
+    height: 50px;
+    box-sizing: border-box;
   }
 
   .overlay {
@@ -350,13 +415,13 @@
   }
 
   .logoWrapper {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
   }
 
-  .logoGlow {
-    width: 65px;
-    height: 65px;
+  .logoImage {
+    width: 100px;
+    height: 100px;
   }
 
   .logoText, 
@@ -365,20 +430,23 @@
   }
 }
 
-/* 425.6px */
+/* 425.6px - Large Phone */
 @media (max-width: 425.6px) {
+  .header {
+    height: 65px;
+  }
+
   .container {
     padding: 0 1.2rem;
   }
 
-  .logoWrapper {
-    width: 50px;
-    height: 50px;
+  .logo {
+    gap: 1.5rem;
   }
 
-  .logoGlow {
-    width: 60px;
-    height: 60px;
+  .logoImage {
+    width: 90px;
+    height: 90px;
   }
 
   .logoText, 
@@ -387,29 +455,19 @@
   }
   
   .nav.navActive {
-    width: 90%;
-    padding: 1.5rem;
+    width: 95%; /* Even wider on small screens */
+    padding: 2rem 1.2rem;
   }
 }
 
-/* 375.2px */
+/* 375.2px - Small Phone */
 @media (max-width: 375.2px) {
+  .header {
+    height: 60px;
+  }
+
   .container {
     padding: 0 1rem;
-  }
-
-  .logo {
-    gap: 0.6rem;
-  }
-
-  .logoWrapper {
-    width: 45px;
-    height: 45px;
-  }
-
-  .logoGlow {
-    width: 55px;
-    height: 55px;
   }
 
   .logoText, 
@@ -419,11 +477,6 @@
 
   .menuButton {
     width: 35px;
-  }
-
-  .nav.navActive {
-    width: 95%;
-    padding: 1.25rem;
   }
 }
 
